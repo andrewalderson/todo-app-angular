@@ -33,7 +33,10 @@
 			  "source.organizeImports": true,
 			  "source.fixAll": true
 			},
-			"editor.formatOnSave": true
+			"editor.formatOnSave": true,
+			"git.inputValidation": "always",
+			"git.inputValidationSubjectLength": 50,
+			"git.inputValidationLength": 72
 		  }
 	}
 
