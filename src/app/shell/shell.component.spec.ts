@@ -1,21 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { render } from '@testing-library/angular';
 import { ShellComponent } from './shell.component';
 
 describe('ShellComponent', () => {
-  let component: ShellComponent;
-  let fixture: ComponentFixture<ShellComponent>;
+  it('should create', async () => {
+    const { container } = await render(ShellComponent);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ShellComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(ShellComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(container).toBeInTheDocument();
   });
 });
