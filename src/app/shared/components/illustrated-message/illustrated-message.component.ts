@@ -60,7 +60,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoIllustratedMessageComponent {
+export class IllustratedMessageComponent {
   @Input({ required: true }) heading!: string;
 
   @Input() description?: string;

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { TodoIllustratedMessageComponent } from 'src/app/shared/components/illustrated-message/illustrated-message.component';
+import { IllustratedMessageComponent } from 'src/app/shared/components/illustrated-message/illustrated-message.component';
 
 @Component({
   selector: 'todo-signed-out',
@@ -11,7 +11,7 @@ import { TodoIllustratedMessageComponent } from 'src/app/shared/components/illus
     CommonModule,
     MatButtonModule,
     RouterLink,
-    TodoIllustratedMessageComponent,
+    IllustratedMessageComponent,
   ],
   template: `<todo-illustrated-message heading="You have been signed out">
       <svg

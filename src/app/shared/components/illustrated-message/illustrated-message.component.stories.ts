@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { TodoIllustratedMessageComponent } from './illustrated-message.component';
+import { IllustratedMessageComponent } from './illustrated-message.component';
 
-const meta: Meta<TodoIllustratedMessageComponent> = {
-  component: TodoIllustratedMessageComponent,
+const meta: Meta<IllustratedMessageComponent> = {
+  component: IllustratedMessageComponent,
   title: 'Components/IllustratedMessage',
   parameters: {
     layout: 'centered',
   },
 };
 export default meta;
-type Story = StoryObj<TodoIllustratedMessageComponent>;
+type Story = StoryObj<IllustratedMessageComponent>;
 
 export const Primary: Story = {
-  render: (args: TodoIllustratedMessageComponent) => ({
+  render: (args: IllustratedMessageComponent) => ({
     props: args,
     template: `<todo-illustrated-message [heading]="heading" [description]="description">
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="240px" viewBox="0 0 993.73022 422.32217" xmlns:xlink="http://www.w3.org/1999/xlink">
