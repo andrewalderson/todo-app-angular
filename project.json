@@ -68,6 +68,53 @@
         "buildTarget": "todo:build",
         "staticFilePath": "dist/todo/browser"
       }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "./.storybook",
+        "browserTarget": "todo:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/todo",
+        "configDir": "./.storybook",
+        "browserTarget": "todo:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c ./.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "todo:build-storybook",
+        "staticFilePath": "dist/storybook/todo"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "todo:build-storybook:ci"
+        }
+      }
     }
   }
 }
