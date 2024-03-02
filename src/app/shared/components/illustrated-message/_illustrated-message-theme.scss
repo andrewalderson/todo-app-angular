@@ -1,0 +1,71 @@
+@use '@angular/material' as mat;
+@use 'sass:color';
+@use 'sass:map';
+
+@mixin color($config-or-theme) {
+  $config: mat.get-color-config($config-or-theme);
+  $foreground: map.get($config, foreground);
+  $primary: map.get($config, primary);
+  $accent: map.get($config, accent);
+
+  :root {
+    --todo-illustrated-message-illustration-color: #{mat.get-color-from-palette(
+        $foreground,
+        'icon'
+      )};
+    --todo-illustrated-message-heading-color: #{mat.get-color-from-palette(
+        $foreground,
+        text
+      )};
+    --todo-illustrated-message-description-color: #{mat.get-color-from-palette(
+        $foreground,
+        text
+      )};
+  }
+}
+
+@mixin typography($config-or-theme) {
+  $config: mat.get-typography-config($config-or-theme);
+
+  :root {
+    --todo-illustrated-message-heading-font-family: inherit;
+
+    --todo-illustrated-message-heading-font-size: #{mat.font-size(
+        $config,
+        'headline-5'
+      )};
+    --todo-illustrated-message-heading-font-weight: #{mat.font-weight(
+        $config,
+        'headline-5'
+      )};
+    --todo-illustrated-message-heading-line-height: #{mat.line-height(
+        $config,
+        'headline-5'
+      )};
+
+    --todo-illustrated-message-description-font-family: inherit;
+
+    --todo-illustrated-message-description-font-size: #{mat.font-size(
+        $config,
+        'body-1'
+      )};
+    --todo-illustrated-message-description-font-weight: #{mat.font-weight(
+        $config,
+        'body-1'
+      )};
+    --todo-illustrated-message-description-line-height: #{mat.line-height(
+        $config,
+        'body-1'
+      )};
+  }
+}
+
+@mixin theme($theme) {
+  @if mat.theme-has($theme, color) {
+    @include color($theme);
+  }
+
+  @if mat.theme-has($theme, typography) {
+    @include typography($theme);
+  }
+}

@@ -1,0 +1,5 @@
+@use '../shared/components/theming' as shared;
+
+@mixin all-component-themes($config-or-theme) {
+  @include shared.all-component-themes($config-or-theme);
+}

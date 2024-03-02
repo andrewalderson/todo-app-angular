@@ -1,0 +1,5 @@
+@forward '../illustrated-message/illustrated-message-theme' as
+    illustrated-message-* show illustrated-message-theme,
+  illustrated-message-color, illustrated-message-typography;
+
+@forward './shared-component-themes';

@@ -2,7 +2,7 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
-
+@use './app/theming' as app;
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -35,6 +35,7 @@ $todo-theme: mat.define-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($todo-theme);
+@include app.all-component-themes($todo-theme);
 
 html,
 body {
@@ -43,4 +44,13 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+todo-illustrated-message {
+  // we are lightnening the main color of the svgs to give it some contrast to the primary color
+  // TODO - this could use some more work because the color looks a little washed out
+  // also we will need a different ligthness value for dark theme ( I think)
+  --todo-illustrated-message-illustration-color: hsl(
+    from #{mat.get-color-from-palette($todo-primary, 'default')} h s l / 80%
+  );
 }

@@ -1,0 +1,5 @@
+@use '../illustrated-message/illustrated-message-theme' as illustrated-message;
+
+@mixin all-component-themes($config-or-theme) {
+  @include illustrated-message.theme($config-or-theme);
+}
