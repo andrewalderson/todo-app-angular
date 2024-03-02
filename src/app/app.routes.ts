@@ -8,7 +8,7 @@ export const appRoutes: Route[] = [
     path: '',
     canActivate: [MsalGuard],
     loadComponent: async () =>
-      (await import('./nx-welcome.component')).NxWelcomeComponent,
+      (await import('./shell/shell.component')).ShellComponent,
   },
   {
     path: '**',
