@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /**
  * These tests are sanity checks to ensure the routes needed for MSAL to function
  * have been defined in the app.
@@ -11,16 +10,12 @@ describe('Todo Auth', () => {
     cy.login().visit('/');
   });
 
-  // IMPORTANT - these tests will always pass if we don't wait after we visit the route
-  // this is because 'visit' will set the window location to the route value
-  // before navigating to the 404 route if the route is not defined
   it('should be able to route to the sign in redirect page', () => {
     cy.wait('@getMsalConfig')
       .its('response.body.auth.redirectUri')
       .then((route) => {
         cy.visit(route);
-        cy.wait(1000);
-        cy.location('pathname').should('eq', route);
+        cy.get('app-redirect').should('exist');
       });
   });
   it('should be able to route to the login failed page and back to the home route', () => {
@@ -28,8 +23,7 @@ describe('Todo Auth', () => {
       .its('response.body.guard.loginFailedRoute')
       .then((route) => {
         cy.visit(route);
-        cy.wait(1000);
-        cy.location('pathname').should('eq', route);
+        cy.get('todo-login-failed').should('exist');
         cy.get('a[href="/"]').click();
         cy.location('pathname').should('not.eq', route);
       });
@@ -40,8 +34,7 @@ describe('Todo Auth', () => {
       .its('response.body.auth.postLogoutRedirectUri')
       .then((route) => {
         cy.visit(route);
-        cy.wait(1000);
-        cy.location('pathname').should('eq', route);
+        cy.get('todo-signed-out').should('exist');
         cy.get('a[href="/"]').click();
         cy.location('pathname').should('not.eq', route);
       });
