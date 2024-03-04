@@ -7,11 +7,11 @@ export const authRoutes: Route[] = [
   {
     path: '_login-failed',
     loadComponent: async () =>
-      (await import('./pages/login-failed.page')).LoginFailedPage,
+      (await import('./pages/login-failed/login-failed.page')).LoginFailedPage,
   },
   {
     path: '_signed-out',
     loadComponent: async () =>
-      (await import('./pages/signed-out.page')).SignedOutPage,
+      (await import('./pages/signed-out/signed-out.page')).SignedOutPage,
   },
 ];
