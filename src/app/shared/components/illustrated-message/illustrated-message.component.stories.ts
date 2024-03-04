@@ -3,7 +3,7 @@ import { IllustratedMessageComponent } from './illustrated-message.component';
 
 const meta: Meta<IllustratedMessageComponent> = {
   component: IllustratedMessageComponent,
-  title: 'Components/IllustratedMessage',
+  title: 'Shared/Components/IllustratedMessage',
   parameters: {
     layout: 'centered',
   },
