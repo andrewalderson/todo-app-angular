@@ -1,7 +1,7 @@
 describe('e2e', () => {
-  beforeEach(() => cy.login().visit('/'));
+  beforeEach(() => cy.visit('/'));
 
   it('should display the app shell', () => {
-    cy.get('todo-shell').should('exist');
+    cy.get('todo-welcome').should('exist');
   });
 });
