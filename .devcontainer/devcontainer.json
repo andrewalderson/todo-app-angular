@@ -14,7 +14,7 @@
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [4200, 4200],
+  "forwardPorts": [4200, 4400],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "npm install && npx cypress install",
