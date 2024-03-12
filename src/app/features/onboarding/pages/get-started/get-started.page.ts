@@ -199,7 +199,7 @@ import { IllustratedMessageComponent } from 'src/app/shared/components/illustrat
         </g>
       </svg>
     </todo-illustrated-message>
-    <button mat-flat-button color="primary" routerLink="/tasks">Sign up</button>
+    <a mat-flat-button color="primary" routerLink="/tasks">Get Started</a>
     <a mat-button color="primary" routerLink="#">Learn more</a>`,
   styles: `
     :host {
@@ -225,4 +225,4 @@ import { IllustratedMessageComponent } from 'src/app/shared/components/illustrat
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WelcomePage {}
+export class GetStartedPage {}

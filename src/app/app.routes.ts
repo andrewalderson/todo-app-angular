@@ -7,8 +7,8 @@ export const appRoutes: Route[] = [
   {
     path: '',
     loadComponent: async () =>
-      (await import('./features/onboarding/pages/welcome/welcome.page'))
-        .WelcomePage,
+      (await import('./features/onboarding/pages/get-started/get-started.page'))
+        .GetStartedPage,
   },
   {
     path: 'tasks',

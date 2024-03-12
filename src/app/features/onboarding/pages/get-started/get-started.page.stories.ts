@@ -1,10 +1,10 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { WelcomePage } from './welcome.page';
+import { GetStartedPage } from './get-started.page';
 
-const meta: Meta<WelcomePage> = {
-  component: WelcomePage,
-  title: 'Onboarding/Pages/Welcome',
+const meta: Meta<GetStartedPage> = {
+  component: GetStartedPage,
+  title: 'Onboarding/Pages/Get Started',
   decorators: [
     moduleMetadata({
       imports: [RouterTestingModule],
@@ -15,7 +15,7 @@ const meta: Meta<WelcomePage> = {
   },
 };
 export default meta;
-type Story = StoryObj<WelcomePage>;
+type Story = StoryObj<GetStartedPage>;
 
 export const Primary: Story = {
   args: {},
