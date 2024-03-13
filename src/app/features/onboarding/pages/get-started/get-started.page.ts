@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { IllustratedMessageComponent } from 'src/app/shared/components/illustrated-message/illustrated-message.component';
 
 @Component({
-  selector: 'todo-welcome',
+  selector: 'todo-get-started',
   standalone: true,
   imports: [
     CommonModule,
