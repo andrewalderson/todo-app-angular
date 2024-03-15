@@ -1,1 +1,26 @@
-<p>shell works!</p>
+<mat-toolbar role="heading">
+    @if(isSmallScreen() === true) {
+        <button
+            mat-icon-button
+            (click)="navDrawer.toggle()">
+            <span class="cdk-visually-hidden">Toggle main navigation drawer</span>
+            <mat-icon>menu</mat-icon>
+        </button>
+    }
+    <todo-logo />
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav 
+      #navDrawer
+      [fixedInViewport]="isSmallScreen() === true"
+      [opened]="isSmallScreen() === false"
+      [mode]="isSmallScreen() === true ? 'over' : 'side'"
+      autoFocus="false"
+    >
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <main>
+        <router-outlet />
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

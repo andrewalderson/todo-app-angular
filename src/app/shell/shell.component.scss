@@ -1,3 +1,81 @@
 :host {
-  display: block;
+  --mat-sidenav-container-divider-color: transparent;
+  --_toolbar-height: var(--mat-toolbar-standard-height);
+
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  inset: 0;
+}
+
+/*  
+  The MatToolbar query that changes its height on mobile
+  Shouldn't have to do this.
+  @see https://github.com/angular/components/issues/27975
+*/
+@media (max-width: 599px) {
+  :host {
+    --_toolbar-height: var(--mat-toolbar-mobile-height);
+  }
+}
+
+mat-toolbar {
+  flex-shrink: 0;
+  z-index: 1000;
+  background-color: transparent; // don't set the css var to change this because we need the variable in other places
+}
+
+mat-sidenav-container {
+  flex: 1;
+  z-index: 998;
+}
+
+mat-sidenav {
+  width: 296px;
+  z-index: 998;
+}
+
+/*  
+  Media query to move scroll from sidenav container
+  to the body on mobile so the address bar is retracted when scrolling 
+*/
+@media only screen and (max-width: 599.98px) and (orientation: portrait),
+  only screen and (max-height: 599.98px) and (orientation: landscape) {
+  mat-toolbar {
+    position: fixed;
+  }
+  mat-sidenav-container {
+    flex: 1 0 auto;
+    padding-top: var(--_toolbar-height);
+  }
+
+  /* 
+  Setting the flex on the mat-sidenav-container to '1 0 auto'
+  causes the body to become the scroll element. We do this on mobile
+  so that the address bar is scrolled out of view when the user scrolls down
+  To get the effect we want of the sidenav background showing under the toolbar
+  we have set the toolbar background-color to transparent. This causes the scrolled
+  content to be visible under the toolbar. This psuedo element sits above the sidenav content
+  and below the toolbar and sidenav blocking the content when it is scrolled
+*/
+  main::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--_toolbar-height);
+    z-index: 999; // this makes it sit between the sidenav and the toolbar
+    background-color: var(--mat-sidenav-content-background-color);
+  }
+}
+
+.mat-drawer-side {
+  background-color: var(--mat-sidenav-content-background-color);
+}
+
+.mat-drawer-over {
+  --mat-sidenav-container-shape: 16px;
+  background-color: var(--mat-toolbar-container-background-color);
+  box-shadow: 0px 0.3px 0.9px rgba(0, 0, 0, 0.15),
+    0px 1.6px 3.6px rgba(0, 0, 0, 0.15);
 }

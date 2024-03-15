@@ -44,6 +44,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+    // I can't find a theme variable for the application background so...
+    background-color: var(--mat-sidenav-content-background-color);
 }
 
 todo-illustrated-message {
