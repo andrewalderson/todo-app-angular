@@ -1,6 +1,7 @@
 <mat-toolbar role="heading">
     @if(isSmallScreen() === true) {
         <button
+            data-testid="sidenav-toggle-button"
             mat-icon-button
             (click)="navDrawer.toggle()">
             <span class="cdk-visually-hidden">Toggle main navigation drawer</span>
@@ -11,6 +12,7 @@
   </mat-toolbar>
   <mat-sidenav-container>
     <mat-sidenav 
+      data-testid="sidenav"
       #navDrawer
       [fixedInViewport]="isSmallScreen() === true"
       [opened]="isSmallScreen() === false"
