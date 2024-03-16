@@ -115,6 +115,15 @@
           "buildTarget": "todo:build-storybook:ci"
         }
       }
+    },
+    "component-test": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "cypress.config.ts",
+        "testingType": "component",
+        "skipServe": true,
+        "devServerTarget": "todo:build"
+      }
     }
   }
 }
