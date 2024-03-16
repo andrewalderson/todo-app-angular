@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  contain: strict;
+  overflow: hidden;
+  box-sizing: border-box;
+  container-type: size; // need this so we can use container units for font size
+  width: var(--todo-avatar-size, 100%);
+  height: var(--todo-avatar-size, 100%);
+  border-radius: var(--todo-avatar-border-radius, 50%);
+  border-width: var(--todo-avatar-border-width, 0);
+  border-style: var(--todo-avatar-border-style, solid);
+  border-color: var(--todo-avatar-border-color);
+  background-color: var(--todo-avatar-background-color);
+  color: var(--todo-avatar-color);
+}

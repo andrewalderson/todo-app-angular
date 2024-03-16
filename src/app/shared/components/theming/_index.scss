@@ -1,3 +1,6 @@
+@forward '../avatar/avatar-theme' as
+    avatar-* show avatar-theme,
+  avatar-color, avatar-typography;
 @forward '../illustrated-message/illustrated-message-theme' as
     illustrated-message-* show illustrated-message-theme,
   illustrated-message-color, illustrated-message-typography;

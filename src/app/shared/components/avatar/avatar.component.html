@@ -1,0 +1,7 @@
+@if (useImage()) {
+<ng-content select="img[todoAvatarImage]" />
+} @else {
+<ng-content
+  select="[todoAvatarFallback], todo-avatar-icon-fallback, todo-avatar-initials-fallback"
+/>
+}
