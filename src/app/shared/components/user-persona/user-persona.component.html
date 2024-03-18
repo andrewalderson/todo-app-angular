@@ -1,0 +1,14 @@
+<div class="todo-user-persona-avatar">
+    <ng-content select="[todoUserPersonaAvatar]" />
+</div>
+<div class="todo-user-persona-content">
+    <div ngClass="todo-user-persona-primary-text">
+        {{ primaryText }}
+        </div>
+        @if(secondaryText) {
+            <div class="todo-user-persona-secondary-text">
+                {{ secondaryText }}
+            </div>
+        }
+</div>
+

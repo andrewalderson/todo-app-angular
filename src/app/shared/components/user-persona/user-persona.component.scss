@@ -1,0 +1,32 @@
+:host {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .todo-user-persona-avatar {
+    --todo-avatar-size: var(--todo-user-persona-avatar-size, 48px);
+  }
+  .todo-user-persona-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .todo-user-persona-primary-text,
+  .todo-user-persona-secondary-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .todo-user-persona-primary-text {
+    color: var(--todo-user-persona-heading-color);
+    font-size: var(--todo-user-persona-heading-font-size);
+    font-weight: var(--todo-user-persona-heading-font-weight);
+  }
+  .todo-user-persona-secondary-text {
+    color: var(--todo-user-persona-description-color);
+    font-size: var(--todo-user-persona-description-font-size);
+    font-weight: var(--todo-user-persona-description-font-weight);
+
+  }

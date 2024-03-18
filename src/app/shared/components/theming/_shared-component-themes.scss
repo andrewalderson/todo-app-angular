@@ -1,7 +1,9 @@
 @use '../avatar/avatar-theme' as avatar;
 @use '../illustrated-message/illustrated-message-theme' as illustrated-message;
+@use '../user-persona/user-persona-theme' as user-persona;
 
 @mixin all-component-themes($config-or-theme) {
   @include avatar.theme($config-or-theme);
   @include illustrated-message.theme($config-or-theme);
+  @include user-persona.theme($config-or-theme);
 }

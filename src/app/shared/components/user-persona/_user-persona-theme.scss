@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+@use 'sass:color';
+@use 'sass:map';
+
+@mixin color($config-or-theme) {
+  $config: mat.get-color-config($config-or-theme);
+  $foreground: map.get($config, foreground);
+  :root {
+    --todo-user-persona-heading-color: #{mat.get-color-from-palette(
+        $foreground,
+        text
+      )};
+    --todo-user-persona-description-color: #{mat.get-color-from-palette(
+        $foreground,
+        text
+      )};
+  }
+}
+
+@mixin typography($config-or-theme) {
+  $config: mat.get-typography-config($config-or-theme);
+
+  :root {
+    font-family: mat.font-family($config);
+    --todo-user-persona-heading-font-size: #{mat.font-size(
+        $config,
+        'body-1'
+      )};
+    --todo-user-persona-heading-font-weight: #{mat.font-weight(
+        $config,
+        'subtitle-2'
+      )};
+    --todo-user-persona-description-font-size: #{mat.font-size(
+        $config,
+        'body-2'
+      )};
+    --todo-user-persona-description-font-weight: #{mat.font-weight(
+        $config,
+        'body-2'
+      )};
+  }
+}
+
+@mixin theme($theme) {
+  $color: mat.get-color-config($theme);
+  $typography: mat.get-typography-config($theme);
+  @if $color != null {
+    @include color($theme);
+  }
+  @if $typography != null {
+    @include typography($theme);
+  }
+}

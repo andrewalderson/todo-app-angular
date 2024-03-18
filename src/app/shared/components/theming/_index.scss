@@ -4,5 +4,8 @@
 @forward '../illustrated-message/illustrated-message-theme' as
     illustrated-message-* show illustrated-message-theme,
   illustrated-message-color, illustrated-message-typography;
+@forward '../user-persona/user-persona-theme' as
+  user-persona-* show user-persona-theme,
+  user-persona-color, user-persona-typography;
 
 @forward './shared-component-themes';
