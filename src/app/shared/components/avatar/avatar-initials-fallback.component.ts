@@ -7,10 +7,9 @@ import {
   OnChanges,
   OnDestroy,
   SimpleChanges,
-  ViewEncapsulation,
   inject,
   isDevMode,
-  signal,
+  signal
 } from '@angular/core';
 import { AvatarColors, AvatarComponent } from './avatar.component';
 
@@ -111,7 +110,6 @@ export const AVATAR_INITIALS_COLORS_FUNCTION =
       }
     `,
   ],
-  encapsulation: ViewEncapsulation.ShadowDom,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarInitialsFallbackComponent implements OnChanges, OnDestroy {
