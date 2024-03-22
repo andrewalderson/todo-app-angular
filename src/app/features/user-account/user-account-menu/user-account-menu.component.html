@@ -1,0 +1,29 @@
+<button [matMenuTriggerFor]="menu">
+    <todo-user-persona
+      [primaryText]="userAccountService.displayName()"
+      [secondaryText]="userAccountService.username()"
+    >
+      <todo-avatar todoUserPersonaAvatar>
+        @if(userAccountService.picture()) {
+          <img
+          todoAvatarImage
+          [src]="userAccountService.picture()!"
+        />
+        }
+        <todo-avatar-initials-fallback
+          [initialsName]="userAccountService.displayName()"
+          [colorsName]="userAccountService.username()"
+        />
+      </todo-avatar>
+    </todo-user-persona>
+    <mat-icon>unfold_more</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button
+      mat-menu-item
+      (click)="userAccountService.signout()"
+    >
+      <mat-icon>logout</mat-icon>
+      <span>Sign out</span>
+    </button>
+  </mat-menu>
