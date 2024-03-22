@@ -6,6 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { IS_SMALL_SCREEN } from '../app.tokens';
+import { UserAccountMenuComponent } from '../features/user-account/user-account-menu/user-account-menu.component';
 import { LogoComponent } from './logo.component';
 
 @Component({
@@ -19,6 +20,7 @@ import { LogoComponent } from './logo.component';
     MatIconModule,
     RouterModule,
     LogoComponent,
+    UserAccountMenuComponent,
   ],
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss'],

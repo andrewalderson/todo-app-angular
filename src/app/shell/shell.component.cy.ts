@@ -1,12 +1,33 @@
-import { signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  USER_ACCOUNT_MENU_SELECTOR,
+  UserAccountMenuComponent,
+} from 'src/app/features/user-account/user-account-menu/user-account-menu.component';
 import { IS_SMALL_SCREEN } from '../app.tokens';
 import { ShellComponent } from './shell.component';
 
 const isSmallScreen = signal(false);
 
+@Component({
+  selector: USER_ACCOUNT_MENU_SELECTOR,
+  template: '',
+  standalone: true,
+})
+class FakeUserAccountMenuComponent {}
+
 describe(ShellComponent.name, () => {
   beforeEach(() => {
+    TestBed.overrideComponent(ShellComponent, {
+      remove: {
+        imports: [UserAccountMenuComponent],
+      },
+      add: {
+        imports: [FakeUserAccountMenuComponent],
+      },
+    });
+
     cy.mount(ShellComponent, {
       imports: [NoopAnimationsModule],
       providers: [{ provide: IS_SMALL_SCREEN, useValue: isSmallScreen }],
