@@ -9,6 +9,7 @@ export const IS_SMALL_SCREEN = new InjectionToken('IS_SMALL_SCREEN', {
     toSignal(
       inject(BreakpointObserver)
         .observe([Breakpoints.XSmall, Breakpoints.Small])
-        .pipe(map((result) => result.matches))
+        .pipe(map((result) => result.matches)),
+      { requireSync: true }
     ),
 });
