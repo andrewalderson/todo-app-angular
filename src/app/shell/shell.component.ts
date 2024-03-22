@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { IS_SMALL_SCREEN } from '../app.tokens';
+import { IS_MOBILE_SCREEN } from '../app.tokens';
 import { UserAccountMenuComponent } from '../features/user-account/user-account-menu/user-account-menu.component';
 import { LogoComponent } from './logo.component';
 
@@ -27,5 +27,5 @@ import { LogoComponent } from './logo.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShellComponent {
-  protected isSmallScreen = inject(IS_SMALL_SCREEN);
+  protected isMobileScreen = inject(IS_MOBILE_SCREEN);
 }

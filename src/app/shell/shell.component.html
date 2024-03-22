@@ -1,5 +1,5 @@
 <mat-toolbar role="heading">
-    @if(isSmallScreen() === true) {
+    @if(isMobileScreen() === true) {
         <button
             data-testid="sidenav-toggle-button"
             mat-icon-button
@@ -14,9 +14,9 @@
     <mat-sidenav 
       data-testid="sidenav"
       #navDrawer
-      [fixedInViewport]="isSmallScreen() === true"
-      [opened]="isSmallScreen() === false"
-      [mode]="isSmallScreen() === true ? 'over' : 'side'"
+      [fixedInViewport]="isMobileScreen() === true"
+      [opened]="isMobileScreen() === false"
+      [mode]="isMobileScreen() === true ? 'over' : 'side'"
       autoFocus="false"
     >
     <todo-user-account-menu />
