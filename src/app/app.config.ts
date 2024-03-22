@@ -6,6 +6,7 @@ import {
   Provider,
   inject,
 } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import {
   MsalGuardConfiguration,
@@ -14,7 +15,6 @@ import {
 import { Configuration, LogLevel } from '@azure/msal-browser';
 import { appRoutes } from './app.routes';
 import { provideMsal, withGuard, withInterceptor } from './auth/provide-msal';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export function loggerCallback(
   logLevel: LogLevel,
@@ -134,6 +134,7 @@ export const appConfig: ApplicationConfig = {
       _MSAL_INSTANCE_CONFIG,
       withGuard(_MSAL_GUARD_CONFIG),
       withInterceptor(_MSAL_INTERCEPTOR_CONFIG)
-    ), provideAnimationsAsync(),
+    ),
+    provideAnimationsAsync(),
   ],
 };
