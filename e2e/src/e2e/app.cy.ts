@@ -7,7 +7,7 @@ describe('Todo', () => {
   context('given it is the users first visit', () => {
     context('when they visit the home route', () => {
       beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/').wait('@getMsalConfig');
       });
       it('should display the get started page', () => {
         cy.get('todo-get-started').should('exist');
@@ -28,7 +28,7 @@ describe('Todo', () => {
     });
     context('when they visit the home route', () => {
       beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/').wait('@getMsalConfig');
       });
       it('should display the tasks view', () => {
         // TODO - update selector when we actually have a tasks view
@@ -37,7 +37,7 @@ describe('Todo', () => {
     });
     context('when they deep link to the tasks view', () => {
       beforeEach(() => {
-        cy.visit('/tasks');
+        cy.visit('/tasks').wait('@getMsalConfig');
       });
       it('should display the tasks view', () => {
         // TODO - update selector when we actually have a tasks view
