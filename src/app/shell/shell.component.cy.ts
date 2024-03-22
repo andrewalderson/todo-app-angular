@@ -1,14 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import {
   USER_ACCOUNT_MENU_SELECTOR,
   UserAccountMenuComponent,
 } from 'src/app/features/user-account/user-account-menu/user-account-menu.component';
-import { IS_SMALL_SCREEN } from '../app.tokens';
 import { ShellComponent } from './shell.component';
-
-const isSmallScreen = signal(false);
 
 @Component({
   selector: USER_ACCOUNT_MENU_SELECTOR,
@@ -29,16 +26,13 @@ describe(ShellComponent.name, () => {
     });
 
     cy.mount(ShellComponent, {
-      imports: [NoopAnimationsModule],
-      providers: [{ provide: IS_SMALL_SCREEN, useValue: isSmallScreen }],
+      providers: [provideNoopAnimations()],
     });
   });
   context('sidenav behaviour', () => {
-    context('given the display is a small screen', () => {
-      // setting the signal needs to be done in a before hook
-      // not sure why beforeEach doesn't work here
-      before(() => {
-        isSmallScreen.set(true);
+    context('given the display is a mobile screen', () => {
+      beforeEach(() => {
+        cy.viewport('iphone-8');
       });
       it('should have a closed sidenav', () => {
         cy.get('[data-testid="sidenav"]').should('not.be.visible');
@@ -59,11 +53,9 @@ describe(ShellComponent.name, () => {
       });
     });
 
-    context('given the display is not a small screen', () => {
-      // setting the signal needs to be done in a before hook
-      // not sure why beforeEach doesn't work here
-      before(() => {
-        isSmallScreen.set(false);
+    context('given the display is not a mobile screen', () => {
+      beforeEach(() => {
+        cy.viewport(1024, 768);
       });
       it('should have a fixed sidenav', () => {
         cy.get('[data-testid="sidenav"]').should('be.visible');
